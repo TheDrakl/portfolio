@@ -8,14 +8,14 @@ function Navbar() {
   };
 
   return (
-    <nav className="flex flex-row justify-between gap-40 font-inter items-center">
+    <nav className="flex flex-row justify-between gap-40 font-inter items-center max-w-[1280px] m-auto">
       <div>
         <a href="#home" onClick={() => handleLinkClick('home')} className="text-[28px] font-poppins font-[600] cursor-pointer">
           DENYS
         </a>
       </div>
 
-      <div className="flex gap-12">
+      <div className="flex gap-12 shadow-lg bg-[#1a1a20] rounded-full py-4 px-8">
         {["home", "projects", "skills", "resume"].map((link) => (
           <a
             key={link}

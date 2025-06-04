@@ -5,10 +5,12 @@ export default {
       colors: {
         bgDark: "#1C1C22",
         lightGreen: "#22c55e",
+        lighterGreen: "#01FF99"
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
       },
     },
   },
