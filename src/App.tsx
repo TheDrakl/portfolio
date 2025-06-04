@@ -1,11 +1,21 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero"
+import Hero from "./components/Hero";
+import PageTransition from "./components/PageTransition";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [showTransition, setShowTransition] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowTransition(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
-      <div className="">
+      <PageTransition isVisible={showTransition} />
+      <div className={`${showTransition ? 'overflow-hidden h-screen' : ''}`}>
         <Navbar />
         <Hero />
       </div>

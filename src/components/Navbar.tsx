@@ -10,7 +10,11 @@ function Navbar() {
   return (
     <nav className="flex flex-row justify-between gap-40 font-inter items-center max-w-[1280px] m-auto">
       <div>
-        <a href="#home" onClick={() => handleLinkClick('home')} className="text-[28px] font-poppins font-[600] cursor-pointer">
+        <a
+          href="#home"
+          onClick={() => handleLinkClick("home")}
+          className="text-[30px] font-poppins font-[600] cursor-pointer"
+        >
           DENYS
         </a>
       </div>
@@ -22,7 +26,9 @@ function Navbar() {
             href={`#${link}`}
             onClick={() => handleLinkClick(link)}
             className={`nav-link text-white hover:text-lightGreen ${
-              activeLink === link ? "active text-lightGreen underline decoration-[2.5px] underline-offset-4" : ""
+              activeLink === link
+                ? "active text-lightGreen underline decoration-[2.5px] underline-offset-[6px]"
+                : ""
             }`}
           >
             {link.charAt(0).toUpperCase() + link.slice(1)}
