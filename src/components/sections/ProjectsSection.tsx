@@ -108,12 +108,12 @@ const projects: Project[] = [
         alt: "Available Time Slots",
       },
       {
-        src: clocklyBookingConfirmed,
-        alt: "Booking Confirmation",
-      },
-      {
         src: clocklyEmailSent,
         alt: "Email Notification",
+      },
+      {
+        src: clocklyBookingConfirmed,
+        alt: "Booking Confirmation",
       },
     ],
   },
@@ -210,7 +210,14 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
                               strokeLinecap="round"
                               strokeLinejoin="round"
                             >
-                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                              <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="2"
+                                ry="2"
+                              />
                               <circle cx="8.5" cy="8.5" r="1.5" />
                               <polyline points="21 15 16 10 5 21" />
                             </svg>
@@ -323,18 +330,4 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
                               : "bg-white/30 hover:bg-white/50"
                           }`}
                           onClick={() => setCurrentImageIndex(index)}
-                        />
-                      ))}
-                    </div>
-                  </>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
-
-export default ProjectsSection;
+                        /
