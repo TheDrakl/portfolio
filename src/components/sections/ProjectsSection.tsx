@@ -330,4 +330,18 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
                               : "bg-white/30 hover:bg-white/50"
                           }`}
                           onClick={() => setCurrentImageIndex(index)}
-                        /
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default ProjectsSection;
