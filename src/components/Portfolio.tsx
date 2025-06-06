@@ -4,26 +4,8 @@ import AboutSection from "./sections/AboutSection";
 import ExperienceSection from "./sections/ExperienceSection";
 import SkillsSection from "./sections/SkillsSection";
 import ProjectsSection from "./sections/ProjectsSection";
-import { IoClose } from "react-icons/io5";
 
-interface ProjectImage {
-  src: string;
-  alt: string;
-}
-
-interface Project {
-  title: string;
-  description: string;
-  tech: string[];
-  gradient: string;
-  features: string[];
-  role: string;
-  demoLink?: string;
-  githubLink?: string;
-  images: ProjectImage[];
-}
-
-function About() {
+function Portfolio() {
   const [currentSection, setCurrentSection] = useState("About Me");
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [slideDirection, setSlideDirection] = useState<"enter" | "exit">("enter");
@@ -154,4 +136,4 @@ function About() {
   );
 }
 
-export default About;
+export default Portfolio;
