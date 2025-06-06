@@ -1,7 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import About from "./components/About";
+import Portfolio from "./components/Portfolio";
 import PageTransition from "./components/PageTransition";
 import { useEffect, useState } from "react";
 
@@ -19,7 +19,7 @@ function App() {
       <div className={`${showTransition ? "overflow-hidden h-screen" : ""}`}>
         <Navbar />
         <Hero />
-        <About />
+        <Portfolio />
       </div>
     </>
   );
