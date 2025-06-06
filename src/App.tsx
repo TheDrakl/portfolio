@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import About from "./components/About";
 import PageTransition from "./components/PageTransition";
 import { useEffect, useState } from "react";
 
@@ -15,9 +16,10 @@ function App() {
   return (
     <>
       <PageTransition isVisible={showTransition} />
-      <div className={`${showTransition ? 'overflow-hidden h-screen' : ''}`}>
+      <div className={`${showTransition ? "overflow-hidden h-screen" : ""}`}>
         <Navbar />
         <Hero />
+        <About />
       </div>
     </>
   );

@@ -14,16 +14,6 @@ html {
   font-weight: 600;
 }
 
-.active {
-  @apply
-  text-lightGreen
-}
-
-.nav-link:hover {
-  @apply
-  text-lightGreen
-}
-
 
 /*
 .logo {

@@ -8,27 +8,35 @@ function Navbar() {
   };
 
   return (
-    <nav className="flex flex-row justify-between gap-40 font-inter items-center max-w-[1280px] m-auto">
+    <nav className="flex flex-row justify-between gap-40 font-inter items-center max-w-[1440px] m-auto">
       <div>
         <a
           href="#home"
           onClick={() => handleLinkClick("home")}
-          className="text-[30px] font-poppins font-[600] cursor-pointer"
+          className="text-[30px] font-poppins font-[600] cursor-pointer transition-shadow duration-300"
+          style={{
+            textShadow: "0 0 0px rgba(0,0,0,0)",
+          }}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.textShadow =
+              "0 0 8px #a2f5a2, 0 0 20px #a2f5a2")
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.textShadow = "0 0 0px rgba(0,0,0,0)")
+          }
         >
           DENYS
         </a>
       </div>
 
       <div className="flex gap-12 shadow-lg bg-[#1a1a20] rounded-full py-4 px-8">
-        {["home", "projects", "skills", "resume"].map((link) => (
+        {["home", "about", "projects", "skills"].map((link) => (
           <a
             key={link}
             href={`#${link}`}
             onClick={() => handleLinkClick(link)}
-            className={`nav-link text-white hover:text-lightGreen ${
-              activeLink === link
-                ? "active text-lightGreen underline decoration-[2.5px] underline-offset-[6px]"
-                : ""
+            className={`nav-link hover:text-lightGreen underline-offset-[6px] decoration-[2.5px] ${
+              activeLink === link ? "text-lightGreen underline" : "text-white"
             }`}
           >
             {link.charAt(0).toUpperCase() + link.slice(1)}

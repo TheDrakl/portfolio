@@ -51,7 +51,7 @@ function Hero() {
       <div className="absolute top-0 right-0 w-40 h-full bg-gradient-to-l from-[#1C1C22] to-transparent z-10" />
 
       <div
-        className={`relative w-full max-w-[1280px] mx-auto flex justify-between mt-[10vh] transition-all duration-700 ease-out ${
+        className={`relative w-full max-w-[1440px] mx-auto flex justify-between mt-[10vh] transition-all duration-700 ease-out ${
           loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
@@ -107,7 +107,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="flex w-full max-w-[1280px] m-auto mt-42 items-center text-center justify-between">
+      <div className="flex w-full max-w-[1280px] m-auto mt-[15vh] mb-[5vh] items-center text-center justify-between">
         <div className="flex flex-row items-center">
           <Counter target={2} />
           <h2 className="text-[16px] text-left ml-4">

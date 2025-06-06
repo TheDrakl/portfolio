@@ -4,8 +4,9 @@ export default {
     extend: {
       colors: {
         bgDark: "#1C1C22",
+        bgDarker: "#16161D",
         lightGreen: "#22c55e",
-        lighterGreen: "#01FF99"
+        lighterGreen: "#01FF99",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
