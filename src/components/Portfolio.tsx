@@ -26,12 +26,7 @@ interface Project {
 function About() {
   const [currentSection, setCurrentSection] = useState("About Me");
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [slideDirection, setSlideDirection] = useState<"enter" | "exit">(
-    "enter"
-  );
-  const [contentVisible, setContentVisible] = useState(true);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<"enter" | "exit">("enter");
   const [viewedSections, setViewedSections] = useState<Set<string>>(
     new Set(["About Me"])
   );
@@ -55,12 +50,7 @@ function About() {
     rootMargin: "-20% 0px -20% 0px",
   });
 
-  const sectionOrder = [
-    "About Me",
-    "My Experience",
-    "My Skills",
-    "My Projects",
-  ];
+  const sectionOrder = ["About Me", "My Experience", "My Skills", "My Projects"];
 
   React.useEffect(() => {
     const getIntersectionRatio = (
@@ -82,7 +72,6 @@ function About() {
     if (mostVisibleSection && mostVisibleSection !== currentSection) {
       setIsTransitioning(true);
       setSlideDirection("exit");
-      setContentVisible(false);
 
       const transitionDelay = 200;
 
@@ -92,7 +81,6 @@ function About() {
         setViewedSections((prev) => new Set([...prev, mostVisibleSection]));
 
         setTimeout(() => {
-          setContentVisible(true);
           setIsTransitioning(false);
         }, transitionDelay);
       }, transitionDelay);
@@ -106,29 +94,13 @@ function About() {
     experienceEntry,
     skillsEntry,
     projectsEntry,
+    currentSection,
   ]);
 
   const getTitleAnimationClasses = () => {
     if (!isTransitioning) return "opacity-100 transform translate-x-0";
-    if (slideDirection === "exit")
-      return "opacity-0 transform translate-x-full";
+    if (slideDirection === "exit") return "opacity-0 transform translate-x-full";
     return "opacity-0 transform -translate-x-full";
-  };
-
-  const nextImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) =>
-        prev === selectedProject.images.length - 1 ? 0 : prev + 1
-      );
-    }
-  };
-
-  const prevImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) =>
-        prev === 0 ? selectedProject.images.length - 1 : prev - 1
-      );
-    }
   };
 
   return (
@@ -178,67 +150,6 @@ function About() {
           <ProjectsSection isVisible={currentSection === "My Projects"} />
         </div>
       </div>
-
-      {/* Project Modal */}
-      {selectedProject && (
-        <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center"
-          onClick={() => setSelectedProject(null)}
-        >
-          <div
-            className="relative max-w-[90vw] max-h-[90vh] bg-[#1C1C22] rounded-2xl p-6 shadow-2xl w-[50%]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
-              onClick={() => setSelectedProject(null)}
-            >
-              <IoClose className="w-6 h-6" />
-            </button>
-            <h2 className="text-2xl font-semibold mb-4">
-              {selectedProject.title}
-            </h2>
-            {selectedProject.images.length > 0 && (
-              <div className="relative">
-                <img
-                  src={selectedProject.images[currentImageIndex].src}
-                  alt={selectedProject.images[currentImageIndex].alt}
-                  className="rounded-lg max-h-[70vh] object-contain mx-auto"
-                />
-                {selectedProject.images.length > 1 && (
-                  <>
-                    <button
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
-                      onClick={prevImage}
-                    >
-                      ←
-                    </button>
-                    <button
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
-                      onClick={nextImage}
-                    >
-                      →
-                    </button>
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                      {selectedProject.images.map((_, index) => (
-                        <button
-                          key={index}
-                          className={`w-2 h-2 rounded-full transition-colors ${
-                            index === currentImageIndex
-                              ? "bg-white"
-                              : "bg-white/30 hover:bg-white/50"
-                          }`}
-                          onClick={() => setCurrentImageIndex(index)}
-                        />
-                      ))}
-                    </div>
-                  </>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
     </section>
   );
 }

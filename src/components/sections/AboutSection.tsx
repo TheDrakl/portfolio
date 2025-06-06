@@ -6,7 +6,7 @@ interface AboutSectionProps {
 }
 
 const AboutSection: React.FC<AboutSectionProps> = ({ isVisible }) => {
-  const [ref, inView] = useInView({
+  const [ref] = useInView({
     threshold: [0.15, 0.3, 0.45, 0.6],
     rootMargin: "-20% 0px -20% 0px",
     initialInView: true,
