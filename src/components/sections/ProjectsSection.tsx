@@ -64,7 +64,7 @@ const projects: Project[] = [
   {
     title: "Resource Helper",
     description:
-      "A collaborative platform for developers to share and discover resources. Implemented authentication via Google/GitHub, resource management system with ratings, and bookmarking functionality.",
+      "A collaborative platform to discover resources. Implemented authentication via Google/GitHub, resource management system with ratings and resource saving functionality",
     tech: ["Django", "DRF", "React", "OAuth", "PostgreSQL"],
     gradient: "from-[#3178C6] to-[#61DAFB]",
     features: ["Social Auth", "Resource Rating", "Bookmarking"],
@@ -287,7 +287,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="relative max-w-[90vw] max-h-[90vh] bg-[#1C1C22] rounded-2xl p-6 shadow-2xl w-[50%]"
+            className="relative max-w-[90vw] max-h-[90vh] bg-[#1C1C22 ] rounded-2xl p-6 shadow-2xl w-[50%]"
             onClick={(e) => e.stopPropagation()}
           >
             <button
