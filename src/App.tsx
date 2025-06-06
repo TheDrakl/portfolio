@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Footer from "./components/Footer";
 import Portfolio from "./components/Portfolio";
 import PageTransition from "./components/PageTransition";
 import { useEffect, useState } from "react";
@@ -20,6 +21,7 @@ function App() {
         <Navbar />
         <Hero />
         <Portfolio />
+        <Footer />
       </div>
     </>
   );
