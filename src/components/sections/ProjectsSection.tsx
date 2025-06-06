@@ -331,4 +331,17 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
                           }`}
                           onClick={() => setCurrentImageIndex(index)}
                         />
-                    
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default ProjectsSection;
