@@ -35,8 +35,8 @@ function Navbar() {
   }, [isModalOpen]);
 
   useEffect(() => {
-    document.body.style.overflow = isModalOpen ? "hidden" : "auto";
-  }, [isModalOpen]);
+    document.body.style.overflow = isModalOpen || isMobileMenuOpen ? "hidden" : "auto";
+  }, [isModalOpen, isMobileMenuOpen]);
 
   const resetForm = () => {
     if (formRef.current) {
@@ -91,11 +91,6 @@ function Navbar() {
       setIsLoading(false);
     }
   };
-
-  // const handleMobileMenuClick = (link: string) => {
-  //   setActiveLink(link);
-  //   setIsMobileMenuOpen(false);
-  // };
 
   return (
     <>
@@ -180,8 +175,29 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-x-0 top-[76px] bg-[#1a1a20] p-4 md:hidden z-20">
-          <div className="flex flex-col gap-4">
+        <div className="fixed inset-0 bg-bgDark md:hidden z-20">
+          <div className="flex justify-end p-4">
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-white p-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <div className="flex flex-col items-center px-4 pt-16 gap-6">
             {["home", "about", "projects", "skills"].map((link) => (
               <a
                 key={link}
@@ -190,7 +206,7 @@ function Navbar() {
                   handleLinkClick(link);
                   setIsMobileMenuOpen(false);
                 }}
-                className={`text-center py-2 nav-link underline-offset-[6px] decoration-[2.5px] ${
+                className={`text-lg py-3 nav-link underline-offset-[6px] decoration-[2.5px] ${
                   activeLink === link ? "text-lightGreen underline" : "text-white"
                 }`}
               >
@@ -202,7 +218,7 @@ function Navbar() {
                 setIsModalOpen(true);
                 setIsMobileMenuOpen(false);
               }}
-              className="w-full py-3 mt-2 bg-lightGreen text-black rounded-xl font-medium"
+              className="mt-8 py-4 bg-lightGreen text-black rounded-xl font-medium text-lg w-full"
             >
               Contact Me
             </button>
