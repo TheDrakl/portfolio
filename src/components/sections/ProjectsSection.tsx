@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
-import { IoClose } from "react-icons/io5";
+import { projects } from "../../data/projects";
 
 // Project Images
 import fiveStarAiHome from "../../assets/projects/5star-ai/home.png";
@@ -35,129 +35,21 @@ interface ProjectsSectionProps {
   isVisible: boolean;
 }
 
-const projects: Project[] = [
-  {
-    title: "5tar AI",
-    description:
-      "A collaborative AI prompt engineering platform built with a team at Chingu. Users can create prompts by filling structured fields and interact with Gemini API. Features include prompt management, API integration, and real-time responses.",
-    tech: ["Django", "DRF", "Gemini API", "PostgreSQL", "JWT"],
-    gradient: "from-[#00A67E] to-[#4285F4]",
-    features: [
-      "Google AI Integration",
-      "Prompt Engineering",
-      "Real-time Responses",
-    ],
-    role: "Backend Developer",
-    demoLink: "https://5starai.netlify.app/",
-    githubLink: "https://github.com/chingu-voyages/V54-tier2-team-21/",
-    images: [
-      {
-        src: fiveStarAiHome,
-        alt: "5tar AI Home Page",
-      },
-      {
-        src: fiveStarAiBuildPrompt,
-        alt: "Prompt Creation Interface",
-      },
-    ],
-  },
-  {
-    title: "Resource Helper",
-    description:
-      "A collaborative platform to discover resources. Implemented authentication via Google/GitHub, resource management system with ratings and resource saving functionality",
-    tech: ["Django", "DRF", "React", "OAuth", "PostgreSQL"],
-    gradient: "from-[#3178C6] to-[#61DAFB]",
-    features: ["Social Auth", "Resource Rating", "Bookmarking"],
-    role: "Full Stack Developer",
-    githubLink: "https://github.com/chingu-voyages/V55-tier2-team-23",
-    images: [
-      {
-        src: resourceHelperHome,
-        alt: "Resource Helper Home",
-      },
-      {
-        src: resourceHelperLogin,
-        alt: "Resource Helper Login",
-      },
-    ],
-  },
-  {
-    title: "Clockly",
-    description:
-      "Advanced booking platform allowing service providers to manage their services and availability. Features include dynamic scheduling, email notifications, and service management.",
-    tech: ["Django", "DRF", "React", "Celery", "Redis", "JWT"],
-    gradient: "from-[#41B883] to-[#34495E]",
-    features: [
-      "Email Notifications",
-      "Dynamic Scheduling",
-      "Service Management",
-    ],
-    role: "Full Stack Developer",
-    githubLink: "https://github.com/TheDrakl/Clockly",
-    images: [
-      {
-        src: clocklyProfile,
-        alt: "Profile Management",
-      },
-      {
-        src: clocklySelectService,
-        alt: "Service Selection",
-      },
-      {
-        src: clocklyAvailableTimes,
-        alt: "Available Time Slots",
-      },
-      {
-        src: clocklyEmailSent,
-        alt: "Email Notification",
-      },
-      {
-        src: clocklyBookingConfirmed,
-        alt: "Booking Confirmation",
-      },
-    ],
-  },
-  {
-    title: "GreenCarLane (Upcoming)",
-    description:
-      "Upcoming project focused on sustainable transportation solutions. Will be working on developing and maintaining web systems with Django and DRF.",
-    tech: ["Django", "GraphQL", "MongoDB"],
-    gradient: "from-[#2E7D32] to-[#43A047]",
-    features: ["System Architecture", "Deployment"],
-    role: "Backend Developer Intern",
-    images: [],
-  },
-];
-
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(
+    null
+  );
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
 
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   const getContentAnimationClasses = () => {
     if (!isVisible) return "opacity-0 transform translate-y-10";
     if (!inView) return "opacity-30 transform translate-x-0 blur-sm";
     return "opacity-100 transform translate-x-0";
-  };
-
-  const nextImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) =>
-        prev === selectedProject.images.length - 1 ? 0 : prev + 1
-      );
-    }
-  };
-
-  const prevImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) =>
-        prev === 0 ? selectedProject.images.length - 1 : prev - 1
-      );
-    }
   };
 
   return (
@@ -307,7 +199,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
               </div>
               <div className="relative aspect-video">
                 <img
-                  src={selectedProject.images[currentImageIndex].src}
+                  src={selectedProject.images[currentImageIndex]}
                   alt={`${selectedProject.title} screenshot ${currentImageIndex + 1}`}
                   className="w-full h-full object-contain rounded-lg"
                 />
