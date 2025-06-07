@@ -92,10 +92,10 @@ function Navbar() {
     }
   };
 
-  const handleMobileMenuClick = (link: string) => {
-    setActiveLink(link);
-    setIsMobileMenuOpen(false);
-  };
+  // const handleMobileMenuClick = (link: string) => {
+  //   setActiveLink(link);
+  //   setIsMobileMenuOpen(false);
+  // };
 
   return (
     <>
