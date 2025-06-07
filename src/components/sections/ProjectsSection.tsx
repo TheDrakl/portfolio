@@ -164,6 +164,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
     <>
       <div
         ref={ref}
+        id="projects"
         className={`text-2xl font-inter space-y-12 text-center min-h-[60vh] flex flex-col justify-center transition-all duration-500 pb-24 ${getContentAnimationClasses()}`}
       >
         <div className="w-full max-w-[1200px] mx-auto px-8">

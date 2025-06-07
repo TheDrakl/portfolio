@@ -20,6 +20,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ isVisible }) => {
   return (
     <div
       ref={ref}
+      id='about'
       className={`text-3xl font-inter leading-relaxed space-y-12 text-center mt-[20vh] min-h-[50vh] flex flex-col justify-center transition-all duration-500 ${getContentAnimationClasses()}`}
     >
       <div className="text-[1.5rem] font-[400] text-[#D4D4D4] font-inter leading-relaxed space-y-6 items-center text-center m-auto mt-[25%]">

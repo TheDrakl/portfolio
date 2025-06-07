@@ -87,6 +87,7 @@ const SkillsSection: React.FC<SkillsProps> = ({ isVisible }) => {
   return (
     <div
       ref={ref}
+      id='skills'
       className={`text-2xl font-inter space-y-16 text-center min-h-[70vh] flex flex-col justify-center transition-all duration-500 px-4 ${getContentAnimationClasses()}`}
     >
       <div className="grid grid-cols-2 gap-16 max-w-[1400px] mx-auto">
