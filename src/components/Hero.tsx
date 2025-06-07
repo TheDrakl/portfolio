@@ -51,11 +51,11 @@ function Hero() {
       <div className="absolute top-0 right-0 w-40 h-full bg-gradient-to-l from-[#1C1C22] to-transparent z-10" />
 
       <div
-        className={`relative w-full max-w-[1440px] mx-auto flex justify-between mt-[10vh] transition-all duration-700 ease-out ${
+        className={`relative w-full max-w-[1440px] mx-auto flex md:flex-row flex-col items-center md:items-start md:justify-between mt-[10vh] transition-all duration-700 ease-out ${
           loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
-        <div className="relative w-[400px] h-[400px] rounded-full overflow-hidden border-4 border-[#00ff95] shadow-lg shadow-[#00ff9570] transition-transform duration-500 hover:scale-105 hover:shadow-[0_0_20px_#00ff95]">
+        <div className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-[#00ff95] shadow-lg shadow-[#00ff9570] transition-transform duration-500 hover:scale-105 hover:shadow-[0_0_20px_#00ff95]">
           <img
             src={heroImg}
             alt="hero img"
@@ -63,14 +63,14 @@ function Hero() {
             draggable="false"
           />
         </div>
-        <div className="w-2/4 text-right mt-10">
-          <h1 className="text-[80px] font-bold m-0 leading-none">Hello, I'm</h1>
-          <h1 className="text-[80px] font-bold text-lighterGreen m-0 animate-pulse">
+        <div className="w-full md:w-2/4 text-center md:text-right mt-8 md:mt-10">
+          <h1 className="text-[40px] md:text-[80px] font-bold m-0 leading-none">Hello, I'm</h1>
+          <h1 className="text-[40px] md:text-[80px] font-bold text-lighterGreen m-0 animate-pulse">
             Denys Melnyk
           </h1>
-          <p className="mt-6 text-lg text-white">Python Developer • Django</p>
-          <div className="flex justify-end items-center mt-12 gap-6">
-            <div className="flex flex-row items-center gap-4 mr-4">
+          <p className="mt-4 md:mt-6 text-lg text-white">Python Developer • Django</p>
+          <div className="flex flex-col md:flex-row justify-center md:justify-end items-center mt-8 md:mt-12 gap-6">
+            <div className="flex flex-row items-center gap-4 md:mr-4">
               <a
                 href="https://github.com/TheDrakl"
                 target="_blank"
@@ -97,7 +97,7 @@ function Hero() {
             <a
               href={cvFile}
               download="Denys_Melnyk_CV.pdf"
-              className="relative rounded-[60px] p-[1px] bg-gradient-to-r from-[#6DDCFF] to-[#7F60F9]"
+              className="relative rounded-[60px] p-[1px] bg-gradient-to-r from-[#6DDCFF] to-[#7F60F9] w-full md:w-auto"
             >
               <span className="flex items-center justify-center gap-2 rounded-[60px] px-10 py-[0.9rem] bg-bgDark text-white font-poppins font-[600] hover:bg-transparent transition-all duration-300">
                 Download CV <FaDownload />
@@ -107,31 +107,31 @@ function Hero() {
         </div>
       </div>
 
-      <div className="flex w-full max-w-[1280px] m-auto mt-[15vh] mb-[5vh] items-center text-center justify-between">
-        <div className="flex flex-row items-center">
+      <div className="grid grid-cols-2 md:flex w-full max-w-[1280px] m-auto mt-12 md:mt-[15vh] mb-[5vh] items-center text-center md:justify-between gap-8 md:gap-0">
+        <div className="flex flex-row items-center justify-center md:justify-start">
           <Counter target={2} />
-          <h2 className="text-[16px] text-left ml-4">
+          <h2 className="text-[14px] md:text-[16px] text-left ml-4">
             Years of
             <br /> experience
           </h2>
         </div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center justify-center md:justify-start">
           <Counter target={5} />
-          <h2 className="text-[16px] text-left ml-4">
+          <h2 className="text-[14px] md:text-[16px] text-left ml-4">
             Projects
             <br /> completed
           </h2>
         </div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center justify-center md:justify-start">
           <Counter target={3} />
-          <h2 className="text-[16px] text-left ml-4">
+          <h2 className="text-[14px] md:text-[16px] text-left ml-4">
             Programming
             <br /> languages
           </h2>
         </div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center justify-center md:justify-start">
           <Counter target={2} />
-          <h2 className="text-[16px] text-left ml-4">
+          <h2 className="text-[14px] md:text-[16px] text-left ml-4">
             Achieved
             <br /> certificates
           </h2>

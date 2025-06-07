@@ -167,7 +167,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
         id="projects"
         className={`text-2xl font-inter space-y-12 text-center min-h-[60vh] flex flex-col justify-center transition-all duration-500 pb-24 ${getContentAnimationClasses()}`}
       >
-        <div className="w-full max-w-[1200px] mx-auto px-8">
+        <div className="w-full max-w-[1200px] mx-auto px-4 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project) => (
               <div
@@ -182,16 +182,16 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
                 ></div>
                 <div className="relative z-10 flex flex-col flex-grow">
                   <div className="mb-6">
-                    <div className="flex items-start justify-between gap-4">
+                    <div className="flex flex-col md:flex-row items-start justify-between gap-2 md:gap-4">
                       <div className="flex flex-col items-start">
-                        <h3 className="text-2xl font-bold text-white">
+                        <h3 className="text-xl md:text-2xl font-bold text-white">
                           {project.title}
                         </h3>
-                        <span className="text-sm text-gray-400 mt-2">
+                        <span className="text-sm text-gray-400 mt-1 md:mt-2">
                           {project.role}
                         </span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 mt-2 md:mt-0">
                         {project.images.length > 0 && (
                           <button
                             onClick={() => {
@@ -211,14 +211,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
                               strokeLinecap="round"
                               strokeLinejoin="round"
                             >
-                              <rect
-                                x="3"
-                                y="3"
-                                width="18"
-                                height="18"
-                                rx="2"
-                                ry="2"
-                              />
+                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
                               <circle cx="8.5" cy="8.5" r="1.5" />
                               <polyline points="21 15 16 10 5 21" />
                             </svg>
@@ -249,9 +242,11 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
                       </div>
                     </div>
                   </div>
+
                   <p className="text-base text-gray-400 mb-8 text-left">
                     {project.description}
                   </p>
+
                   <div className="mt-auto space-y-6">
                     <div className="flex flex-wrap gap-2">
                       {project.features.map((feature) => (
@@ -288,7 +283,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="relative max-w-[90vw] max-h-[90vh] bg-[#1C1C22 ] rounded-2xl p-6 shadow-2xl w-[50%]"
+            className="relative max-w-[90vw] max-h-[90vh] bg-[#1C1C22] rounded-2xl p-6 shadow-2xl w-[50%]"
             onClick={(e) => e.stopPropagation()}
           >
             <button

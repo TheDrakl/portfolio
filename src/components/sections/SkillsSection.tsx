@@ -90,11 +90,11 @@ const SkillsSection: React.FC<SkillsProps> = ({ isVisible }) => {
       id='skills'
       className={`text-2xl font-inter space-y-16 text-center min-h-[70vh] flex flex-col justify-center transition-all duration-500 px-4 ${getContentAnimationClasses()}`}
     >
-      <div className="grid grid-cols-2 gap-16 max-w-[1400px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-[1400px] mx-auto">
         {skillCategories.map((category) => (
           <div
             key={category.title}
-            className="p-12 rounded-2xl bg-gradient-to-br from-bgDarker to-[#1C1C22] border border-[#2E2E34] shadow-lg relative group overflow-hidden"
+            className="p-6 md:p-12 rounded-2xl bg-gradient-to-br from-bgDarker to-[#1C1C22] border border-[#2E2E34] shadow-lg relative group overflow-hidden"
           >
             <div
               className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none"
@@ -103,7 +103,7 @@ const SkillsSection: React.FC<SkillsProps> = ({ isVisible }) => {
               }}
             ></div>
 
-            <h3 className="text-white font-semibold text-3xl mb-12 relative">
+            <h3 className="text-2xl md:text-3xl text-white font-semibold mb-8 md:mb-12 relative">
               <span
                 className="bg-clip-text text-white bg-gradient-to-r pb-1"
                 style={{
@@ -114,22 +114,22 @@ const SkillsSection: React.FC<SkillsProps> = ({ isVisible }) => {
               </span>
             </h3>
 
-            <div className="grid grid-cols-3 gap-12">
+            <div className="grid grid-cols-3 gap-6 md:gap-12">
               {category.skills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="group/icon relative flex items-center justify-center h-24"
+                  className="group/icon relative flex items-center justify-center h-16 md:h-24"
                 >
                   <div className="relative">
-                    <skill.icon className="w-16 h-16 text-gray-400 group-hover/icon:text-white transition-all duration-300 group-hover/icon:scale-110 relative z-10" />
-                    <div className="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-[calc(100%+1.25rem)] w-max opacity-0 group-hover/icon:opacity-100 transition-all duration-300 pointer-events-none z-20">
-                      <div className="bg-[#2A2A30]/95 backdrop-blur-sm text-white py-3 px-5 rounded-lg shadow-xl whitespace-nowrap border border-gray-700/50">
-                        <div className="font-medium text-base">{skill.name}</div>
-                        <div className="text-sm text-gray-400 mt-1">
+                    <skill.icon className="w-10 h-10 md:w-16 md:h-16 text-gray-400 group-hover/icon:text-white transition-all duration-300 group-hover/icon:scale-110 relative z-10" />
+                    <div className="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-[calc(100%+1rem)] md:-translate-y-[calc(100%+1.25rem)] w-max opacity-0 group-hover/icon:opacity-100 transition-all duration-300 pointer-events-none z-20">
+                      <div className="bg-[#2A2A30]/95 backdrop-blur-sm text-white py-2 md:py-3 px-4 md:px-5 rounded-lg shadow-xl whitespace-nowrap border border-gray-700/50">
+                        <div className="font-medium text-sm md:text-base">{skill.name}</div>
+                        <div className="text-xs md:text-sm text-gray-400 mt-0.5 md:mt-1">
                           {skill.level}
                         </div>
                       </div>
-                      <div className="w-4 h-4 bg-[#2A2A30]/95 border-b border-r border-gray-700/50 absolute -bottom-[8px] left-1/2 -translate-x-1/2 rotate-45"></div>
+                      <div className="w-3 h-3 md:w-4 md:h-4 bg-[#2A2A30]/95 border-b border-r border-gray-700/50 absolute -bottom-[6px] md:-bottom-[8px] left-1/2 -translate-x-1/2 rotate-45"></div>
                     </div>
                     <div
                       className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover/icon:opacity-10 transition-opacity duration-300 rounded-full blur-md"
