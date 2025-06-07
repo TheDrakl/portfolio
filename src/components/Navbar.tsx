@@ -4,7 +4,6 @@ import emailjs from "@emailjs/browser";
 function Navbar() {
   const [activeLink, setActiveLink] = useState("home");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [emailStatus, setEmailStatus] = useState<{
     type: "success" | "error" | null;
@@ -35,8 +34,8 @@ function Navbar() {
   }, [isModalOpen]);
 
   useEffect(() => {
-    document.body.style.overflow = isModalOpen || isMobileMenuOpen ? "hidden" : "auto";
-  }, [isModalOpen, isMobileMenuOpen]);
+    document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+  }, [isModalOpen]);
 
   const resetForm = () => {
     if (formRef.current) {
@@ -59,7 +58,8 @@ function Navbar() {
     if (!serviceId || !templateId || !userId) {
       setEmailStatus({
         type: "error",
-        message: "Email service is not properly configured. Please contact the administrator.",
+        message:
+          "Email service is not properly configured. Please contact the administrator.",
       });
       setIsLoading(false);
       return;
@@ -93,138 +93,52 @@ function Navbar() {
   };
 
   return (
-    <>
-      <nav className="flex flex-row justify-between gap-40 font-inter items-center max-w-[1440px] m-auto z-10 relative">
-        <div>
-          <a
-            href="#home"
-            onClick={() => handleLinkClick("home")}
-            className="text-[30px] font-poppins font-[600] cursor-pointer transition-shadow duration-300"
-            style={{
-              textShadow: "0 0 0px rgba(0,0,0,0)",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.textShadow =
-                "0 0 8px #a2f5a2, 0 0 20px #a2f5a2")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.textShadow = "0 0 0px rgba(0,0,0,0)")
-            }
-          >
-            DENYS
-          </a>
-        </div>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-12 shadow-lg bg-[#1a1a20] rounded-full py-4 px-8">
-          {["home", "about", "projects", "skills"].map((link) => (
-            <a
-              key={link}
-              href={`#${link}`}
-              onClick={() => handleLinkClick(link)}
-              className={`nav-link hover:text-lightGreen underline-offset-[6px] decoration-[2.5px] ${
-                activeLink === link ? "text-lightGreen underline" : "text-white"
-              }`}
-            >
-              {link.charAt(0).toUpperCase() + link.slice(1)}
-            </a>
-          ))}
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden text-white p-2"
+    <nav className="flex flex-row justify-between gap-40 font-inter items-center max-w-[1440px] m-auto z-10 relative px-4">
+      <div>
+        <a
+          href="#home"
+          onClick={() => handleLinkClick("home")}
+          className="text-[30px] font-poppins font-[600] cursor-pointer"
+          style={{
+            textShadow: "0 0 0px rgba(0,0,0,0)",
+          }}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.textShadow =
+              "0 0 8px #a2f5a2, 0 0 20px #a2f5a2")
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.textShadow = "0 0 0px rgba(0,0,0,0)")
+          }
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+          DENYS
+        </a>
+      </div>
+
+      <div className="flex gap-16 shadow-lg bg-[#1a1a20] rounded-full py-6 px-12">
+        {["home", "about", "projects", "skills"].map((link) => (
+          <a
+            key={link}
+            href={`#${link}`}
+            onClick={() => handleLinkClick(link)}
+            className={`nav-link text-lg hover:text-lightGreen underline-offset-[6px] decoration-[2.5px] ${
+              activeLink === link ? "text-lightGreen underline" : "text-white"
+            }`}
           >
-            {isMobileMenuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
+            {link.charAt(0).toUpperCase() + link.slice(1)}
+          </a>
+        ))}
+      </div>
+
+      <div>
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="relative rounded-[60px] p-[1px] bg-gradient-to-r from-[#6DDCFF] to-[#7F60F9]"
+        >
+          <span className="block rounded-[60px] px-10 py-4 bg-bgDark text-white font-poppins font-[600] text-lg hover:bg-transparent">
+            Contact Me
+          </span>
         </button>
-
-        <div className="hidden md:block">
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="relative rounded-[60px] p-[1px] bg-gradient-to-r from-[#6DDCFF] to-[#7F60F9]"
-          >
-            <span className="block rounded-[60px] px-8 py-[0.8rem] bg-bgDark text-white font-poppins font-[600] hover:bg-transparent">
-              Contact Me
-            </span>
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-bgDark md:hidden z-20">
-          <div className="flex justify-end p-4">
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white p-2"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-          <div className="flex flex-col items-center px-4 pt-16 gap-6">
-            {["home", "about", "projects", "skills"].map((link) => (
-              <a
-                key={link}
-                href={`#${link}`}
-                onClick={() => {
-                  handleLinkClick(link);
-                  setIsMobileMenuOpen(false);
-                }}
-                className={`text-lg py-3 nav-link underline-offset-[6px] decoration-[2.5px] ${
-                  activeLink === link ? "text-lightGreen underline" : "text-white"
-                }`}
-              >
-                {link.charAt(0).toUpperCase() + link.slice(1)}
-              </a>
-            ))}
-            <button
-              onClick={() => {
-                setIsModalOpen(true);
-                setIsMobileMenuOpen(false);
-              }}
-              className="mt-8 py-4 bg-lightGreen text-black rounded-xl font-medium text-lg w-full"
-            >
-              Contact Me
-            </button>
-          </div>
-        </div>
-      )}
+      </div>
 
       {/* Modal */}
       {isModalOpen && (
@@ -235,19 +149,36 @@ function Navbar() {
           >
             <div className="p-8 space-y-6">
               <div className="flex justify-between items-center">
-                <h2 className="text-2xl font-semibold text-white">Contact Me</h2>
+                <h2 className="text-2xl font-semibold text-white">
+                  Contact Me
+                </h2>
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
                   className="text-gray-400 hover:text-white"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 </button>
               </div>
 
-              <form ref={formRef} onSubmit={handleSendEmail} className="space-y-4">
+              <form
+                ref={formRef}
+                onSubmit={handleSendEmail}
+                className="space-y-4"
+              >
                 <input
                   type="email"
                   name="from_email"
@@ -293,7 +224,7 @@ function Navbar() {
           </div>
         </div>
       )}
-    </>
+    </nav>
   );
 }
 

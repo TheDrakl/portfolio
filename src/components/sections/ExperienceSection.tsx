@@ -24,21 +24,21 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ isVisible }) => {
     >
       <div className="max-w-[900px] mx-auto px-4">
         <div className="relative">
-          <div className="absolute left-0 w-[2px] h-full bg-gradient-to-b from-lightGreen/50 via-lightGreen to-lightGreen/50 rounded-full"></div>
-          <div className="space-y-12 ml-10">
+          <div className="absolute left-0 md:left-0 w-[2px] h-full bg-gradient-to-b from-lightGreen/50 via-lightGreen to-lightGreen/50 rounded-full"></div>
+          <div className="space-y-8 md:space-y-12 ml-6 md:ml-10">
             {/* GreenCarLane */}
             <div className="relative group">
-              <div className="absolute -left-[3rem] w-5 h-5 rounded-full bg-lightGreen ring-6 ring-bgDarker group-hover:ring-[#1C1C22] transition-all duration-300"></div>
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-bgDarker to-[#1C1C22] border border-[#2E2E34] shadow-lg group-hover:border-lightGreen/20 transition-all duration-300">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lightGreen font-semibold text-xl">
+              <div className="absolute -left-[2rem] md:-left-[3rem] w-4 md:w-5 h-4 md:h-5 rounded-full bg-lightGreen ring-4 md:ring-6 ring-bgDarker group-hover:ring-[#1C1C22] transition-all duration-300"></div>
+              <div className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-bgDarker to-[#1C1C22] border border-[#2E2E34] shadow-lg group-hover:border-lightGreen/20 transition-all duration-300">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-0 mb-4">
+                  <h3 className="text-lightGreen font-semibold text-lg md:text-xl">
                     Backend Developer (Intern) at GreenCarLane
                   </h3>
-                  <span className="text-gray-400 text-base">
+                  <span className="text-gray-400 text-sm md:text-base">
                     2025 - Present
                   </span>
                 </div>
-                <p className="text-base text-gray-300 text-left mb-6">
+                <p className="text-sm md:text-base text-gray-300 text-left mb-6">
                   Developing and supporting web systems with Django and DRF.
                   Writing RESTful APIs and handling deployment processes.
                 </p>
@@ -47,7 +47,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ isVisible }) => {
                     (tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1.5 text-sm rounded-lg bg-[#1C1C22] text-lightGreen border border-lightGreen/20"
+                        className="px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm rounded-lg bg-[#1C1C22] text-lightGreen border border-lightGreen/20"
                       >
                         {tech}
                       </span>
@@ -59,17 +59,17 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ isVisible }) => {
 
             {/* WordPress */}
             <div className="relative group">
-              <div className="absolute -left-[3rem] w-5 h-5 rounded-full bg-lightGreen ring-6 ring-bgDarker group-hover:ring-[#1C1C22] transition-all duration-300"></div>
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-bgDarker to-[#1C1C22] border border-[#2E2E34] shadow-lg group-hover:border-lightGreen/20 transition-all duration-300">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lightGreen font-semibold text-xl">
+              <div className="absolute -left-[2rem] md:-left-[3rem] w-4 md:w-5 h-4 md:h-5 rounded-full bg-lightGreen ring-4 md:ring-6 ring-bgDarker group-hover:ring-[#1C1C22] transition-all duration-300"></div>
+              <div className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-bgDarker to-[#1C1C22] border border-[#2E2E34] shadow-lg group-hover:border-lightGreen/20 transition-all duration-300">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-0 mb-4">
+                  <h3 className="text-lightGreen font-semibold text-lg md:text-xl">
                     Freelance WordPress Developer
                   </h3>
-                  <span className="text-gray-400 text-base">
+                  <span className="text-gray-400 text-sm md:text-base">
                     2025 - Present
                   </span>
                 </div>
-                <p className="text-base text-gray-300 text-left mb-6">
+                <p className="text-sm md:text-base text-gray-300 text-left mb-6">
                   Successfully delivered two custom WordPress websites from
                   concept to deployment. Maintained and customized WordPress
                   websites with focus on theme customization, layout
@@ -79,7 +79,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ isVisible }) => {
                   {["WordPress", "PHP", "MySQL"].map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1.5 text-sm rounded-lg bg-[#1C1C22] text-lightGreen border border-lightGreen/20"
+                      className="px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm rounded-lg bg-[#1C1C22] text-lightGreen border border-lightGreen/20"
                     >
                       {tech}
                     </span>
@@ -90,17 +90,17 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ isVisible }) => {
 
             {/* Chingu */}
             <div className="relative group">
-              <div className="absolute -left-[3rem] w-5 h-5 rounded-full bg-lightGreen ring-6 ring-bgDarker group-hover:ring-[#1C1C22] transition-all duration-300"></div>
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-bgDarker to-[#1C1C22] border border-[#2E2E34] shadow-lg group-hover:border-lightGreen/20 transition-all duration-300">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lightGreen font-semibold text-xl">
+              <div className="absolute -left-[2rem] md:-left-[3rem] w-4 md:w-5 h-4 md:h-5 rounded-full bg-lightGreen ring-4 md:ring-6 ring-bgDarker group-hover:ring-[#1C1C22] transition-all duration-300"></div>
+              <div className="p-4 md:p-6 rounded-2xl bg-gradient-to-br from-bgDarker to-[#1C1C22] border border-[#2E2E34] shadow-lg group-hover:border-lightGreen/20 transition-all duration-300">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 md:gap-0 mb-4">
+                  <h3 className="text-lightGreen font-semibold text-lg md:text-xl">
                     Backend Developer at Chingu
                   </h3>
-                  <span className="text-gray-400 text-base">
+                  <span className="text-gray-400 text-sm md:text-base">
                     2024 - Present
                   </span>
                 </div>
-                <p className="text-base text-gray-300 text-left mb-6">
+                <p className="text-sm md:text-base text-gray-300 text-left mb-6">
                   Built full-stack web applications using Django, Django Rest
                   Framework and PostgreSQL. Collaborated with a remote team to
                   design and implement backend features using Django and REST
@@ -110,7 +110,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ isVisible }) => {
                   {["Django", "DRF", "PostgreSQL", "Git"].map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1.5 text-sm rounded-lg bg-[#1C1C22] text-lightGreen border border-lightGreen/20"
+                      className="px-2 md:px-3 py-1 md:py-1.5 text-xs md:text-sm rounded-lg bg-[#1C1C22] text-lightGreen border border-lightGreen/20"
                     >
                       {tech}
                     </span>

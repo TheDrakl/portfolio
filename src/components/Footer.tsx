@@ -17,7 +17,7 @@ function Footer() {
 
       <footer className="relative z-20 flex justify-between max-w-[1440px] m-auto px-6 py-10 -mb-[20px] bg-transparent items-center">
         <div>
-          <button onClick={scrollToTop} className="text-[26px] font-bold text-white">Denys</button>
+          <button onClick={scrollToTop} className="text-[26px] font-bold font-inter text-white">Denys</button>
         </div>
         <div className="flex flex-row items-center gap-4">
           <a

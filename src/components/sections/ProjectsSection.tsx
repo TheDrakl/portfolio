@@ -131,8 +131,8 @@ const projects: Project[] = [
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
   const [ref, inView] = useInView({
-    threshold: [0.1, 0.2, 0.3],
-    rootMargin: "-20% 0px -20% 0px",
+    threshold: 0.1,
+    triggerOnce: true,
   });
 
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -168,11 +168,12 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
         className={`text-2xl font-inter space-y-12 text-center min-h-[60vh] flex flex-col justify-center transition-all duration-500 pb-24 ${getContentAnimationClasses()}`}
       >
         <div className="w-full max-w-[1200px] mx-auto px-4 md:px-8">
+          <h2 className="text-3xl font-bold text-white mb-8 md:hidden">My Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project) => (
               <div
                 key={project.title}
-                className="group relative p-8 rounded-2xl bg-gradient-to-br from-bgDarker to-[#1C1C22] border border-[#2E2E34] shadow-lg overflow-hidden h-full flex flex-col"
+                className="group relative p-6 md:p-8 rounded-2xl bg-gradient-to-br from-bgDarker to-[#1C1C22] border border-[#2E2E34] shadow-lg overflow-hidden h-full flex flex-col"
               >
                 <div
                   className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-5 transition-opacity duration-500"
@@ -180,66 +181,65 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
                     backgroundImage: `linear-gradient(${project.gradient})`,
                   }}
                 ></div>
+
                 <div className="relative z-10 flex flex-col flex-grow">
-                  <div className="mb-6">
-                    <div className="flex flex-col md:flex-row items-start justify-between gap-2 md:gap-4">
-                      <div className="flex flex-col items-start">
-                        <h3 className="text-xl md:text-2xl font-bold text-white">
-                          {project.title}
-                        </h3>
-                        <span className="text-sm text-gray-400 mt-1 md:mt-2">
-                          {project.role}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2 mt-2 md:mt-0">
-                        {project.images.length > 0 && (
-                          <button
-                            onClick={() => {
-                              setSelectedProject(project);
-                              setCurrentImageIndex(0);
-                            }}
-                            className="text-gray-400 hover:text-white transition-colors"
-                            title="View Screenshots"
+                  <div className="flex justify-between items-start mb-6">
+                    <div>
+                      <h3 className="text-xl md:text-2xl font-bold text-white text-left">
+                        {project.title}
+                      </h3>
+                      <span className="text-sm text-gray-400 mt-2 block text-left">
+                        {project.role}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      {project.images.length > 0 && (
+                        <button
+                          onClick={() => {
+                            setSelectedProject(project);
+                            setCurrentImageIndex(0);
+                          }}
+                          className="text-gray-400 hover:text-white transition-colors"
+                          title="View Screenshots"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-5 h-5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="w-4 h-4"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            >
-                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                              <circle cx="8.5" cy="8.5" r="1.5" />
-                              <polyline points="21 15 16 10 5 21" />
-                            </svg>
-                          </button>
-                        )}
-                        {project.demoLink && (
-                          <a
-                            href={project.demoLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-400 hover:text-white transition-colors"
-                            title="Live Demo"
-                          >
-                            <FaExternalLinkAlt className="w-4 h-4" />
-                          </a>
-                        )}
-                        {project.githubLink && (
-                          <a
-                            href={project.githubLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-400 hover:text-white transition-colors"
-                            title="View Code"
-                          >
-                            <FaGithub className="w-4 h-4" />
-                          </a>
-                        )}
-                      </div>
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <polyline points="21 15 16 10 5 21" />
+                          </svg>
+                        </button>
+                      )}
+                      {project.demoLink && (
+                        <a
+                          href={project.demoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-white transition-colors"
+                          title="Live Demo"
+                        >
+                          <FaExternalLinkAlt className="w-5 h-5" />
+                        </a>
+                      )}
+                      {project.githubLink && (
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-white transition-colors"
+                          title="View Code"
+                        >
+                          <FaGithub className="w-5 h-5" />
+                        </a>
+                      )}
                     </div>
                   </div>
 
@@ -277,62 +277,109 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ isVisible }) => {
       </div>
 
       {/* Project Modal */}
-      {selectedProject && (
-        <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center"
-          onClick={() => setSelectedProject(null)}
-        >
-          <div
-            className="relative max-w-[90vw] max-h-[90vh] bg-[#1C1C22] rounded-2xl p-6 shadow-2xl w-[50%]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
-              onClick={() => setSelectedProject(null)}
-            >
-              <IoClose className="w-6 h-6" />
-            </button>
-            <h2 className="text-2xl font-semibold mb-4">
-              {selectedProject.title}
-            </h2>
-            {selectedProject.images.length > 0 && (
-              <div className="relative">
+      {selectedProject && selectedProject.images.length > 0 && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-[#1C1C22] rounded-2xl w-full max-w-4xl overflow-hidden">
+            <div className="p-4">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-semibold text-white">
+                  {selectedProject.title} Screenshots
+                </h3>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="text-gray-400 hover:text-white"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div className="relative aspect-video">
                 <img
                   src={selectedProject.images[currentImageIndex].src}
-                  alt={selectedProject.images[currentImageIndex].alt}
-                  className="rounded-lg max-h-[70vh] object-contain mx-auto"
+                  alt={`${selectedProject.title} screenshot ${currentImageIndex + 1}`}
+                  className="w-full h-full object-contain rounded-lg"
                 />
                 {selectedProject.images.length > 1 && (
                   <>
                     <button
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
-                      onClick={prevImage}
+                      onClick={() =>
+                        setCurrentImageIndex(
+                          (prev) =>
+                            (prev - 1 + selectedProject.images.length) %
+                            selectedProject.images.length
+                        )
+                      }
+                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
                     >
-                      ←
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M15 19l-7-7 7-7"
+                        />
+                      </svg>
                     </button>
                     <button
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
-                      onClick={nextImage}
+                      onClick={() =>
+                        setCurrentImageIndex(
+                          (prev) => (prev + 1) % selectedProject.images.length
+                        )
+                      }
+                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70"
                     >
-                      →
-                    </button>
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                      {selectedProject.images.map((_, index) => (
-                        <button
-                          key={index}
-                          className={`w-2 h-2 rounded-full transition-colors ${
-                            index === currentImageIndex
-                              ? "bg-white"
-                              : "bg-white/30 hover:bg-white/50"
-                          }`}
-                          onClick={() => setCurrentImageIndex(index)}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
                         />
-                      ))}
-                    </div>
+                      </svg>
+                    </button>
                   </>
                 )}
               </div>
-            )}
+              {selectedProject.images.length > 1 && (
+                <div className="mt-4 flex justify-center gap-2">
+                  {selectedProject.images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`w-2.5 h-2.5 rounded-full ${
+                        currentImageIndex === index
+                          ? "bg-lightGreen"
+                          : "bg-gray-600"
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
