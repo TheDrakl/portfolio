@@ -8,14 +8,14 @@ function Footer() {
     }
 
   return (
-    <div className="relative mt-[10vh] bg-grid pt-4 px-4">
+    <div className="relative pt-20 bg-grid px-4">
       <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-[#1C1C22] to-transparent z-10 pointer-events-none" />
 
       <div className="absolute top-0 left-0 h-full w-40 bg-gradient-to-r from-[#1C1C22] to-transparent z-10 pointer-events-none" />
 
       <div className="absolute top-0 right-0 h-full w-40 bg-gradient-to-l from-[#1C1C22] to-transparent z-10 pointer-events-none" />
 
-      <footer className="relative z-20 flex justify-between items-center max-w-[1440px] m-auto px-6 py-10 bg-transparent">
+      <footer className="relative z-20 flex justify-between max-w-[1440px] m-auto px-6 py-10 -mb-[20px] bg-transparent items-center">
         <div>
           <button onClick={scrollToTop} className="text-[26px] font-bold text-white">Denys</button>
         </div>
