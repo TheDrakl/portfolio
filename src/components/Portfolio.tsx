@@ -116,8 +116,8 @@ function Portfolio() {
       </div>
 
       <div className="w-full md:w-2/3 space-y-[15vh] md:space-y-[30vh] py-8 md:py-16">
-        <div>
-          <div className="md:hidden text-center mb-4">
+        <div className="space-y-2">
+          <div className="md:hidden text-center">
             <h2 className="text-4xl font-bold">
               About <span className="text-lightGreen">Me</span>
             </h2>
@@ -127,8 +127,8 @@ function Portfolio() {
           </div>
         </div>
 
-        <div>
-          <div className="md:hidden text-center mb-4">
+        <div className="space-y-16">
+          <div className="md:hidden text-center">
             <h2 className="text-4xl font-bold">
               My <span className="text-lightGreen">Experience</span>
             </h2>
@@ -138,8 +138,8 @@ function Portfolio() {
           </div>
         </div>
 
-        <div>
-          <div className="md:hidden text-center mb-4">
+        <div className="space-y-2">
+          <div className="md:hidden text-center">
             <h2 className="text-4xl font-bold">
               My <span className="text-lightGreen">Skills</span>
             </h2>
@@ -149,8 +149,8 @@ function Portfolio() {
           </div>
         </div>
 
-        <div>
-          <div className="md:hidden text-center mb-4">
+        <div className="space-y-16">
+          <div className="md:hidden text-center">
             <h2 className="text-4xl font-bold">
               My <span className="text-lightGreen">Projects</span>
             </h2>
