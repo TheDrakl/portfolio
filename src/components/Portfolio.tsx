@@ -86,8 +86,8 @@ function Portfolio() {
   };
 
   return (
-    <section className="flex text-white min-h-[200vh] mt-[10%] px-8 max-w-[2560px] m-auto">
-      <div className="w-1/3 relative">
+    <section className="flex md:flex-row flex-col text-white min-h-[200vh] mt-[10%] px-8 max-w-[2560px] m-auto">
+      <div className="w-1/3 relative hidden md:block">
         <div className="sticky top-1/2 transform -translate-y-1/2 flex flex-col items-center mt-[40%]">
           <h2
             className={`text-[60px] font-bold transition-all duration-500 ${getTitleAnimationClasses()}`}
@@ -115,21 +115,49 @@ function Portfolio() {
         </div>
       </div>
 
-      <div className="w-2/3 space-y-[30vh] py-16">
-        <div ref={aboutRef}>
-          <AboutSection isVisible={currentSection === "About Me"} />
+      <div className="w-full md:w-2/3 space-y-[15vh] md:space-y-[30vh] py-8 md:py-16">
+        <div>
+          <div className="md:hidden text-center mb-4">
+            <h2 className="text-4xl font-bold">
+              About <span className="text-lightGreen">Me</span>
+            </h2>
+          </div>
+          <div ref={aboutRef}>
+            <AboutSection isVisible={currentSection === "About Me"} />
+          </div>
         </div>
 
-        <div ref={experienceRef}>
-          <ExperienceSection isVisible={currentSection === "My Experience"} />
+        <div>
+          <div className="md:hidden text-center mb-4">
+            <h2 className="text-4xl font-bold">
+              My <span className="text-lightGreen">Experience</span>
+            </h2>
+          </div>
+          <div ref={experienceRef}>
+            <ExperienceSection isVisible={currentSection === "My Experience"} />
+          </div>
         </div>
 
-        <div ref={skillsRef}>
-          <SkillsSection isVisible={currentSection === "My Skills"} />
+        <div>
+          <div className="md:hidden text-center mb-4">
+            <h2 className="text-4xl font-bold">
+              My <span className="text-lightGreen">Skills</span>
+            </h2>
+          </div>
+          <div ref={skillsRef}>
+            <SkillsSection isVisible={currentSection === "My Skills"} />
+          </div>
         </div>
 
-        <div ref={projectsRef}>
-          <ProjectsSection isVisible={currentSection === "My Projects"} />
+        <div>
+          <div className="md:hidden text-center mb-4">
+            <h2 className="text-4xl font-bold">
+              My <span className="text-lightGreen">Projects</span>
+            </h2>
+          </div>
+          <div ref={projectsRef}>
+            <ProjectsSection isVisible={currentSection === "My Projects"} />
+          </div>
         </div>
       </div>
     </section>

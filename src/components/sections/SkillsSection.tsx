@@ -90,7 +90,7 @@ const SkillsSection: React.FC<SkillsProps> = ({ isVisible }) => {
       id='skills'
       className={`text-2xl font-inter space-y-12 md:space-y-16 text-center min-h-[70vh] flex flex-col justify-center transition-all duration-500 px-4 ${getContentAnimationClasses()}`}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-16 max-w-[1400px] mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 lg:gap-16 max-w-[1400px] mx-auto">
         {skillCategories.map((category) => (
           <div
             key={category.title}
