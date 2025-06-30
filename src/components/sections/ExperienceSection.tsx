@@ -39,8 +39,8 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ isVisible }) => {
                   </span>
                 </div>
                 <p className="text-base text-gray-300 text-left mb-6">
-                  Developing and supporting web systems with Django and DRF.
-                  Writing RESTful APIs and handling deployment processes.
+                  Building and maintaining web applications using Django,
+                  GraphQL, and MongoDB. Writing scripts to process data.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["Django", "GraphQL", "JWT", "MongoDB", "Docker", "Git"].map(
